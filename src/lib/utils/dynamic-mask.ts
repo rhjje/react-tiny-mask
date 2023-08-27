@@ -1,8 +1,9 @@
-import { MaskerProps } from '../types';
+import { MaskerProps, ApplyMaskFunction } from '../types';
 
-import { applyMask } from './apply-mask';
-
-export function dynamicMask({ value, mask, masked, tokens }: MaskerProps) {
+export function dynamicMask(
+  { value, mask, tokens }: MaskerProps,
+  applyMask: ApplyMaskFunction,
+) {
   mask = (mask as Array<string>).sort((a, b) => a.length - b.length);
 
   let index = 0;
@@ -13,12 +14,12 @@ export function dynamicMask({ value, mask, masked, tokens }: MaskerProps) {
     if (
       !(
         nextMask &&
-        applyMask({ value, mask: nextMask, masked: true, tokens }).length >
-          currentMask.length
+        applyMask({ value, mask: nextMask, tokens }).length > currentMask.length
       )
     ) {
-      return applyMask({ value, mask: currentMask, masked, tokens });
+      return applyMask({ value, mask: currentMask, tokens });
     }
   }
-  return ''; // empty masks
+
+  return '';
 }

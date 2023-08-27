@@ -14,12 +14,12 @@
       "eslint src --max-warnings=0"
     ]
   },
-  "types": "./dist/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "main": "./dist/react-tiny-mask.umd.js",
   "module": "./dist/react-tiny-mask.es.js",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
+      "types": "./dist/types/index.d.ts",
       "import": "./dist/react-tiny-mask.es.js",
       "require": "./dist/react-tiny-mask.umd.js"
     }

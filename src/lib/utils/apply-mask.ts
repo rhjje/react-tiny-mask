@@ -6,13 +6,13 @@ export function applyMask({ value, mask, tokens }: MaskerProps) {
   let output = '';
 
   while (maskIndex < mask.length && valueIndex < value.length) {
-    let maskSymbol = mask[maskIndex];
-    const rules = tokens[maskSymbol];
+    const maskSymbol = mask[maskIndex];
+    const token = tokens[maskSymbol];
     const valueSymbol = value[valueIndex];
 
-    if (rules) {
-      if (rules.pattern?.test(valueSymbol)) {
-        output += rules.transform ? rules.transform(valueSymbol) : valueSymbol;
+    if (token) {
+      if (token.pattern?.test(valueSymbol)) {
+        output += token.transform ? token.transform(valueSymbol) : valueSymbol;
         maskIndex++;
       }
 

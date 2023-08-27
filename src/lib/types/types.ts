@@ -14,3 +14,5 @@ export interface MaskerProps {
   mask: MaskType;
   tokens: TokensType;
 }
+
+export type ApplyMaskFunction = (args: MaskerProps) => string;

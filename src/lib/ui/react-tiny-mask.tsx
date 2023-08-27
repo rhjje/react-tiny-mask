@@ -1,7 +1,7 @@
 import { forwardRef, InputHTMLAttributes, ChangeEvent } from 'react';
 
-import { MaskType, TokensType } from '../types';
-import { masker, defaultToken } from '../utils';
+import { TokenType, TokensType, MaskType } from '../types';
+import { masker, applyMask, defaultToken } from '../utils';
 
 export interface InputMaskProps extends InputHTMLAttributes<HTMLInputElement> {
   mask: MaskType;
@@ -16,16 +16,20 @@ export const InputMask = forwardRef<HTMLInputElement, InputMaskProps>(
       let position = el.selectionEnd || 0;
       const digit = el.value[position - 1];
 
-      el.value = masker({
-        value: el.value,
-        mask,
-        tokens: { ...tokens, ...defaultToken },
-      });
+      el.value = masker(
+        {
+          value: el.value,
+          mask,
+          tokens: { ...tokens, ...defaultToken },
+        },
+        applyMask,
+      );
 
       while (
         position &&
         position < el.value.length &&
-        el.value.charAt(position - 1) !== digit
+        el.value.charAt(position - 1).toLocaleLowerCase() !==
+          digit.toLocaleLowerCase()
       ) {
         position++;
       }
@@ -42,3 +46,5 @@ export const InputMask = forwardRef<HTMLInputElement, InputMaskProps>(
 );
 
 InputMask.displayName = 'InputMask';
+
+export type { TokenType, TokensType, MaskType };

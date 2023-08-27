@@ -1,10 +1,12 @@
-import { MaskerProps } from '../types';
+import { MaskerProps, ApplyMaskFunction } from '../types';
 
 import { dynamicMask } from './dynamic-mask';
-import { applyMask } from './apply-mask';
 
-export function masker({ value, mask, tokens }: MaskerProps) {
+export function masker(
+  { value, mask, tokens }: MaskerProps,
+  applyMask: ApplyMaskFunction,
+) {
   return Array.isArray(mask)
-    ? dynamicMask({ value, mask, tokens })
+    ? dynamicMask({ value, mask, tokens }, applyMask)
     : applyMask({ value, mask, tokens });
 }
