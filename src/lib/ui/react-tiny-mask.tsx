@@ -1,4 +1,9 @@
-import { forwardRef, InputHTMLAttributes, ChangeEvent } from 'react';
+import {
+  forwardRef,
+  InputHTMLAttributes,
+  ChangeEvent,
+  ElementType,
+} from 'react';
 
 import { TokenType, TokensType, MaskType } from '../types';
 import { masker, applyMask, defaultToken } from '../utils';
@@ -6,10 +11,11 @@ import { masker, applyMask, defaultToken } from '../utils';
 export interface InputMaskProps extends InputHTMLAttributes<HTMLInputElement> {
   mask: MaskType;
   tokens?: TokensType;
+  component?: ElementType;
 }
 
 export const InputMask = forwardRef<HTMLInputElement, InputMaskProps>(
-  ({ mask, tokens = {}, onChange, ...props }, ref) => {
+  ({ mask, tokens, onChange, component: Component, ...props }, ref) => {
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
       const el = event.target as HTMLInputElement;
 
@@ -38,13 +44,13 @@ export const InputMask = forwardRef<HTMLInputElement, InputMaskProps>(
         el.setSelectionRange(position, position);
       }
 
-      onChange && onChange(event);
+      onChange?.(event);
     };
 
-    return <input {...props} ref={ref} type="text" onChange={handleChange} />;
+    const Element = Component || 'input';
+
+    return <Element {...props} ref={ref} type="text" onChange={handleChange} />;
   },
 );
-
-InputMask.displayName = 'InputMask';
 
 export type { TokenType, TokensType, MaskType };
