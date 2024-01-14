@@ -15,21 +15,17 @@ export interface InputMaskProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const InputMask = forwardRef<HTMLInputElement, InputMaskProps>(
-  ({ mask, tokens, onChange, component: Component, ...props }, ref) => {
+  (
+    { mask, tokens = defaultToken, onChange, component: Component, ...props },
+    ref,
+  ) => {
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
       const el = event.target as HTMLInputElement;
 
       let position = el.selectionEnd || 0;
       const digit = el.value[position - 1];
 
-      el.value = masker(
-        {
-          value: el.value,
-          mask,
-          tokens: { ...tokens, ...defaultToken },
-        },
-        applyMask,
-      );
+      el.value = masker({ value: el.value, mask, tokens }, applyMask);
 
       while (
         position &&
