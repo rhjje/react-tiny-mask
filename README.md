@@ -1,6 +1,6 @@
 # react-tiny-mask
 
-Lightweight (>2KB gzipped) and dependency free mask input, created specifically for React (inspired by [vue-the-mask](https://github.com/vuejs-tips/vue-the-mask))
+Lightweight (<2KB gzipped) and dependency free mask input, created specifically for React (inspired by <a href="https://github.com/vuejs-tips/vue-the-mask" target="_blank">vue-the-mask</a>)
 
 ## Installation
 
@@ -29,7 +29,7 @@ export const App = () => {
 |             Name              | Required |          Type           |           Default            | Description                                     |
 | :---------------------------: | :------: | :---------------------: | :--------------------------: | :---------------------------------------------- |
 |      **[`mask`](#mask)**      |  `true`  | `string, Array<string>` |                              | Mask pattern                                    |
-|    **[`tokens`](#tokens)**    | `false`  |        `Object`         | `{ '#': { pattern: /\d/ } }` | Custom tokens for mask mask                     |
+|    **[`tokens`](#tokens)**    | `false`  |        `Object`         | `{ '#': { pattern: /\d/ } }` | Custom tokens for mask                          |
 | **[`component`](#component)** | `false`  |      `ElementType`      |                              | Custom component instead of regular `<input />` |
 
 ### mask
@@ -80,6 +80,7 @@ import { InputMask } from 'react-tiny-mask';
 const tokens = {
   '#': {
     pattern: /[0-9a-fA-F]/,
+    transform: (value: string) => value.toUpperCase(),
   },
 };
 
