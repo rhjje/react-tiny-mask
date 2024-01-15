@@ -1,6 +1,5 @@
 {
   "name": "react-tiny-mask",
-  "private": true,
   "version": "0.0.1",
   "description": "React input mask",
   "keywords": [
@@ -34,7 +33,7 @@
     "dev": "vite build --watch",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "prepare": "husky install",
+    "prepare": "npm run build",
     "test": "vitest"
   },
   "lint-staged": {
@@ -42,9 +41,9 @@
       "eslint src --max-warnings=0"
     ]
   },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "devDependencies": {
     "@types/node": "^18.11.13",
