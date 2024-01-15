@@ -1,8 +1,35 @@
 {
   "name": "react-tiny-mask",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "description": "React input mask",
+  "keywords": [
+    "mask",
+    "input",
+    "input-mask",
+    "react"
+  ],
+  "author": "Alexander Yanykin",
+  "homepage": "https://github.com/rhjje/react-tiny-mask",
+  "repository": {
+    "url": "https://github.com/rhjje/react-tiny-mask",
+    "type": "git"
+  },
+  "license": "MIT",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/types/index.d.ts",
+  "main": "./dist/react-tiny-mask.umd.js",
+  "module": "./dist/react-tiny-mask.es.js",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/react-tiny-mask.es.js",
+      "require": "./dist/react-tiny-mask.umd.js"
+    }
+  },
   "scripts": {
     "dev": "vite build --watch",
     "build": "tsc && vite build",
@@ -14,16 +41,6 @@
     "*.{ts,tsx}": [
       "eslint src --max-warnings=0"
     ]
-  },
-  "types": "./dist/types/index.d.ts",
-  "main": "./dist/react-tiny-mask.umd.js",
-  "module": "./dist/react-tiny-mask.es.js",
-  "exports": {
-    ".": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/react-tiny-mask.es.js",
-      "require": "./dist/react-tiny-mask.umd.js"
-    }
   },
   "dependencies": {
     "react": "^18.2.0",
