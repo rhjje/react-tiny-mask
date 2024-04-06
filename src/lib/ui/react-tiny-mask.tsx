@@ -45,8 +45,10 @@ export const InputMask = forwardRef<HTMLInputElement, InputMaskProps>(
 
     const Element = Component || 'input';
 
-    return <Element {...props} ref={ref} type="text" onChange={handleChange} />;
+    return <Element {...props} ref={ref} onChange={handleChange} />;
   },
 );
+
+InputMask.displayName = 'InputMask';
 
 export type { TokenType, TokensType, MaskType };
