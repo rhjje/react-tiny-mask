@@ -1,0 +1,9 @@
+.examples {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.input {
+  max-width: 260px;
+}

@@ -23,10 +23,11 @@
       "@/features/*": ["src/features/*"],
       "@/entities/*": ["src/entities/*"],
       "@/model": ["src/model"],
-      "@/shared/*": ["src/shared/*"]
+      "@/shared/*": ["src/shared/*"],
+      "react-tiny-mask": ["src/index.ts"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "demo"],
   "references": [
     {
       "path": "./tsconfig.node.json"

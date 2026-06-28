@@ -34,7 +34,9 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "prepare": "npm run build",
-    "test": "vitest"
+    "test": "vitest",
+    "demo:dev": "vite --config vite.demo.config.ts",
+    "demo:build": "vite build --config vite.demo.config.ts"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -46,10 +48,16 @@
     "react-dom": ">=16.8.0"
   },
   "devDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/material": "^9.1.2",
     "@types/node": "^18.11.13",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react": "^3.0.0",
+    "antd": "^6.4.5",
     "eslint": "^8.29.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-import": "^2.26.0",

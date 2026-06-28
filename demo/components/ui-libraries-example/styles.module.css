@@ -1,0 +1,46 @@
+.examples {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.input {
+  max-width: 260px;
+}
+
+/* shadcn/ui */
+.shadcnField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 280px;
+}
+
+.shadcnLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.shadcnInput {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: white;
+  color: var(--color-text);
+  outline: none;
+  width: 100%;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+
+.shadcnInput::placeholder {
+  color: #94a3b8;
+}
+
+.shadcnInput:focus {
+  border-color: #94a3b8;
+  box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.2);
+}

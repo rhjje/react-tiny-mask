@@ -1,0 +1,15 @@
+.examples {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input {
+  max-width: 260px;
+}

@@ -2,6 +2,8 @@
 
 Lightweight (<2KB gzipped) and dependency free mask input, created specifically for React (inspired by <a href="https://github.com/vuejs-tips/vue-the-mask" target="_blank">vue-the-mask</a>)
 
+<a href="https://rhjje.github.io/react-tiny-mask/" target="_blank">Live demo →</a>
+
 ## Installation
 
 ```
