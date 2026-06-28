@@ -27,6 +27,7 @@ export default defineConfig({
     react(),
     dts({
       outDir: 'dist/types',
+      tsconfigPath: './tsconfig.build.json',
     }),
   ],
 });
